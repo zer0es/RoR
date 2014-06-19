@@ -1,16 +1,17 @@
 require_relative "fizzbuzz"
 
-puts 'Enter number to array, enter Enter key to stop'
+puts 'N?'
+
+n = gets.to_i
 array = []
-input = ' '
-while input != ''
-  input = gets.chomp
-  array.push input
+
+for i in 0..n
+  array.push i
 end
 
-for i in array
-  puts "fizz" if ( i % 3 == 0 && i % 5 != 0)
-  puts "buzz" if ( i % 5 == 0 && i % 3 != 0)
-  puts "fizzbuzz" if ( i % 15 == 0)
-  puts i if ( i % 5 != 0 && i % 3 != 0 )
-end
+array.each { |a| 
+  x = ''
+  x += 'fizz' if a%3==0
+  x += 'buzz' if a%5==0
+  puts (x.empty? ? a : x);
+  }
